@@ -13,9 +13,4 @@
 
 Route::get('/', 'HomeController@get_index');
 
-Route::get('user', function()
-{
-    $users = User::all();
-    
-    return View::make('user')->with('users', $users);
-});
+Route::resource('nerds', 'NerdController');
