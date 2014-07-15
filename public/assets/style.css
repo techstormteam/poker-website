@@ -1,0 +1,233 @@
+@charset "UTF-8";
+/* CSS Document */
+/* -------    Page Layout ----------*/
+body {
+	padding:0px;
+	margin:0px;
+	background:url(images/bg.gif) 0 0 repeat;
+	font:12px/18px Arial, Helvetica, sans-serif;
+	color:#fff;
+	min-width:1000px;
+}
+td {
+	font:12px/18px Arial, Helvetica, sans-serif;
+	color:#fff;
+	font-weight:normal;
+}
+div, h1, h2, h3, h4, h5, h6, p, img, ul, ol, li, form, input, textarea, span {
+	padding : 0;
+	margin : 0;
+}
+p {
+	padding : 0px 0 10px 0;
+	margin : 0;
+}
+ul {
+	list-style : none;
+}
+img {
+	outline : none;
+	border : none;
+}
+a {
+	outline : none;
+	text-decoration : none;
+}
+/*-------------------       General      --------------*/
+.ass_text {
+	color:#7c7c7c;
+	font-size:14px;
+	font-weight:bold;
+}
+.bold_text {
+	color:#fff;
+	font-size:30px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	line-height:34px;
+	padding-bottom:25px;
+}
+.bold_text span {
+	color:#15ebd4;
+}
+/*-------------------       General      --------------*/
+
+
+#header {
+	margin:0px auto 0px auto;
+	width:970px;
+	padding:10px 10px 0px 20px;
+	height:99px;
+}
+#language {
+	width:136px;
+	position:relative;
+	text-align:left;
+}
+#language h2 {
+	background:url(images/drop_down.gif) 0 0 no-repeat;
+	display:block;
+	line-height:31px;
+	line-height:31px;
+	color:#4B4B4B;
+	font-size:14px;
+	font-weight:bold;
+	cursor:pointer;
+}
+#language h2 span {
+	display:inline-block;
+	padding:0 0 0 20px;
+}
+#language ul {
+	width:136px;
+	background:#000;
+	border-radius:10px;
+	text-align:left;
+	padding:10px 0 10px 0;
+	position:absolute;
+	display:none;
+}
+#language ul li {
+	display:inline-block;
+	clear:both;
+	width:100%;
+}
+#language ul li a {
+	display:block;
+	clear:both;
+	padding:3px 0 3px 20px;
+	color:#fff;
+	height:1%;
+}
+#language ul li a:hover {
+	background:#333;
+}
+#banner {
+	background:url(images/banner.jpg) 0 0 no-repeat;
+	margin:0px auto 0px auto;
+	width:944px;
+	padding:55px 0px 0px 56px;
+	height:311px;
+}
+#menu_outer {
+	margin:0px auto 0px auto;
+	width:1000px;
+	padding:0px;
+	height:71px;
+}
+#menu {
+	background:url(images/menu_bg.gif) 0 0 repeat-x;
+	width:942px;
+	padding:0px;
+	height:55px;
+}
+#menu ul {
+}
+#menu li {
+	display:inline;
+	line-height:55px;
+	text-shadow:0px 1px #000;
+	font-weight:bold;
+	font-size:14px;
+	color:#fff;
+	background:url(images/divider.gif) 0 0 no-repeat;
+	padding:0px 20px 0px 20px;
+}
+#menu li.nobg {
+	background:none;
+}
+#menu li a {
+	color:#fff;
+}
+#menu li a:hover, #menu li a.active {
+	color:#33fee4;
+}
+#contain {
+	margin:0px auto 0px auto;
+	width:1000px;
+	padding:0px 0px 20px 0px;
+}
+#box {
+	width:1000px;
+}
+#black_box {
+	width:679px;
+	padding:20px 0px 0px 0px;
+}
+#black_box_in {
+	width:630px;
+	background:#181818;
+	padding:10px 20px 30px 29px;
+}
+#black_box_in td {
+	color:#787676;
+}
+#yellow_box {
+	margin-top:20px;
+	background:url(images/free_poker_bg.gif) 0 0 no-repeat;
+	width:291px;
+	height:179px;
+	padding:115px 0px 0px 25px;
+}
+#yellow_box ul {
+	text-align:left;
+}
+#yellow_box li {
+	background:url(images/dot.gif) 0 5px no-repeat;
+	padding:0px 0px 7px 15px;
+	color:#181818;
+	text-shadow:0px 1px #fcdb01;
+	font-weight:bold;
+}
+#footer {
+	margin:0px auto 0px auto;
+	width:1000px;
+	text-align:center;
+	padding:0px 0px 122px 0px;
+}
+#foot_box {
+	width:1000px;
+	height:96px;
+	padding-bottom:20px;
+}
+#foot_box_in {
+	width:962px;
+	height:96px;
+	background:#181818;
+}
+#foot_box_in td {
+	height:96px;
+}
+#footer td {
+	color:#fff;
+	font-weight:bold;
+}
+#footer p a {
+	color:#fff;
+	font-weight:bold;
+	padding:0px 7px 10px 7px;
+}
+#footer p a:hover, #footer p a.active {
+	color:#33fee4;
+}
+.dt {
+	font-size:11px;
+	font-weight:normal;
+	color:#595959;
+	padding:10px 0px 0px 7px;
+}
+/*Begin http://www.pokertemplates.org | http://www.gamingguide.net Code | Do Not Remove*/
+#pokertemplates {
+	color:#fff;
+	text-align:center;
+	background:#252321;
+	padding:4px;
+}
+#pokertemplates a {
+	color:#1A7194;
+	font-weight:bold;
+}
+#pokertemplates a:hover {
+	color:#F11D1D;
+	text-decoration:underline
+} 
+/*End http://www.pokertemplates.org | http://www.gamingguide.net Code | Do Not Remove*/
