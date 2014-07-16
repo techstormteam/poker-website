@@ -45,7 +45,7 @@ class ScheduleJobController extends BaseController {
                     if (!empty($hand_number) && ($hand_number % $freeroll_hand === 0)) {
                         // have a freeroll
                         $email = User::increaseFreeroll($playerName);
-//                        Mail_sender::giveFreerollsUser($email);
+                        Mail_sender::giveFreerollsUser($email);
                     }
                 }
                 

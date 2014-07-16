@@ -32,12 +32,6 @@ class CreateSettingTable extends Migration {
             );
             DB::table('settings')->insert(
                 array(
-                    'key_option' => 'freeroll_time',
-                    'value_option' => '4'
-                )
-            );
-            DB::table('settings')->insert(
-                array(
                     'key_option' => 'freeroll_hand_list_line',
                     'value_option' => '1'
                 )
