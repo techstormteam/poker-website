@@ -127,7 +127,7 @@ class Api {
         $params["Blinds"] = $blinds;
         $params["Payout"] = $payout;
         $params["Auto"] = $auto;
-
+        
         $api = self::call_api($params);
         return $api;
     }

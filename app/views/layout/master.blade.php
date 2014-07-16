@@ -3,9 +3,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>{{ $title }}</title>
+
         <link href="{{ $assets }}/style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="{{ $assets }}/js/jquery-1.5.2.min.js"></script>
-        <script >
+        <script>
 $(document).ready(function() {
     var defaultLan = "English";
     var r = $('#language h2 span').text();
@@ -63,11 +64,11 @@ $(document).ready(function() {
                     <td><img src="{{ $assets }}/images/menu_left.gif" width="29" height="55" alt="" /></td>
                     <td><div id="menu">
                             <ul>
-                                <li class="nobg"><a href="#" class="active"> Home </a></li>
+                                <li class="nobg"><a href="{{ URL::to('home/index') }}" class="active"> Home </a></li>
                                 @if(!Auth::check())
-                                    <li><a href="">Sign in</a></li>
+                                <li><a href="{{ URL::to('home/register') }}">Sign in</a></li>
                                 @else
-                                    <li><a href="#">Sign out</a></li>
+                                <li><a href="#">Sign out</a></li>
                                 @endif
                                 <!--                                <li><a href="#">About</a></li>
                                                                 <li><a href="#">Strategies</a></li>

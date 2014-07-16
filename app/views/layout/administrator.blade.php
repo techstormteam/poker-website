@@ -136,8 +136,8 @@
                                 <li><a href="#"><i class="fa fa-flag-checkered"></i><span>Tournament</span></a>
                                     <ul class="sub-menu">
                                         
-                                        <li>{{ HTML::linkAction('AdminTournamentController@get_index', 'Add Tournament') }}</li>
-                                        <li>{{ HTML::linkAction('AdminTournamentController@get_index', 'View Tournament List') }}</li>
+                                        <li>{{ HTML::linkAction('AdminTournamentController@get_add_view', 'Add Tournament') }}</li>
+                                        <li>{{ HTML::linkAction('AdminTournamentController@get_list_view', 'View Tournament List') }}</li>
                                     </ul>
                                 </li>
                             </ul>
