@@ -16,10 +16,10 @@ Route::get('admin', 'AdminController@get_index');
 Route::get('admin/tournament', 'AdminTournamentController@get_index');
 Route::get('admin/tournament/add_view', 'AdminTournamentController@get_add_view');
 Route::get('admin/tournament/list_view', 'AdminTournamentController@get_list_view');
-Route::get('admin/tournament/add', 'AdminTournamentController@get_add');
-Route::get('admin/tournament/delete', 'AdminTournamentController@get_delete');
-Route::get('admin/tournament/online', 'AdminTournamentController@get_online');
-Route::get('admin/tournament/offline', 'AdminTournamentController@get_offline');
+Route::post('admin/tournament/add', 'AdminTournamentController@post_add');
+Route::get('admin/tournament/delete/{name}', array('as' => 'group', 'uses' => 'AdminTournamentController@get_delete'));
+Route::get('admin/tournament/online/{name}', array('as' => 'group', 'uses' => 'AdminTournamentController@get_online'));
+Route::get('admin/tournament/offline/{name}', array('as' => 'group', 'uses' => 'AdminTournamentController@get_offline'));
 
 
 Route::resource('nerds', 'NerdController');

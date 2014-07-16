@@ -12,6 +12,7 @@
 </div>
 
 <?php
+//var_dump($result);
     if (!empty($info_message)) {
         HtmlGenerator::divNotification("Tournament", $info_message);
     }
@@ -75,17 +76,17 @@
                                         <?php
                                         if ($current_page_list_status[$index] === 'Offline') {
                                         ?>
-                                        <a class="btn btn-primary btn-xs" href="{{ URL::to('admin/tournament/online').$current_page_list_name[$index]; }}" data-original-title="Publish Online" data-toggle="tooltip">
+                                        <a class="btn btn-primary btn-xs" href="{{ URL::to('admin/tournament/online/'.$current_page_list_name[$index]); }}" data-original-title="Publish Online" data-toggle="tooltip">
                                             <i class="fa fa-thumbs-up"></i></a>
                                         <?php
                                         } else {
                                         ?>
-                                        <a class="btn btn-default btn-xs" href="{{ URL::to('admin/tournament/offline').$current_page_list_name[$index]; }}" data-original-title="Cancel Online" data-toggle="tooltip">
+                                        <a class="btn btn-default btn-xs" href="{{ URL::to('admin/tournament/offline/'.$current_page_list_name[$index]); }}" data-original-title="Cancel Online" data-toggle="tooltip">
                                             <i class="fa fa-thumbs-down"></i></a>
                                         <?php
                                         }
                                         ?>
-                                        <a class="btn btn-danger btn-xs" href="{{ URL::to('admin/tournament/delete').$current_page_list_name[$index]; }}" data-original-title="Remove" data-toggle="tooltip">
+                                        <a class="btn btn-danger btn-xs" href="{{ URL::to('admin/tournament/delete/'.$current_page_list_name[$index]); }}" data-original-title="Remove" data-toggle="tooltip">
                                             <i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
@@ -104,7 +105,7 @@
                                         $to = $list_total->Tournaments;
                                     }
                                     ?>
-                                    <div class="dataTables_info" id="datatable-icons_info">Showing <?= $from ?> to <?= $to ?> of <?= $list_total->Tournaments ?> entries</div>
+                                    <div class="dataTables_info" id="datatable-icons_info">Showing <?= $from + 1; ?> to <?= $to ?> of <?= $list_total->Tournaments ?> entries</div>
                                 </div>
                                 <div class="pull-right">
                                     <div class="dataTables_paginate paging_bs_normal">
