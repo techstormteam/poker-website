@@ -13,4 +13,5 @@ class AdminController extends BaseController {
         return View::make('admin.index');
     }
 
+    
 }

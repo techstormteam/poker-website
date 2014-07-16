@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration {
             $table->string('zip_code', 20);
             $table->text('answer');
             $table->text('bonus_code');
-            $table->bigInteger('freeroll_hand_number');
+            $table->bigInteger('freeroll_hand_number')->default(0);;
             $table->integer('status')->default(0);
             $table->text('activate_code');
 

@@ -3,25 +3,32 @@
 class ScheduleJobController extends BaseController {
 
     public function __construct() {
+        View::share('title', 'Poker');
+        View::share('assets', asset('assets'));
     }
 
     public function get_give_freerolls() {
-        // get setting model
-        $freeroll_hand = $this->setting_model->get_value('freeroll_hand');
-        if (empty($freeroll_hand)) {
-            $freeroll_hand = 1;
-        }
-        $freeroll_hand_list_line = $this->setting_model->get_value('freeroll_hand_list_line');
-        if (empty($freeroll_hand_list_line)) {
-            $freeroll_hand_list_line = 0;
-        }
-        $freeroll_hand_line = $this->setting_model->get_value('freeroll_hand_line');
-        if (empty($freeroll_hand_line)) {
-            $freeroll_hand_line = 0;
-        }
         
-        $response = array();
-        $response[count($response)] = Api::system_get("LoginChime");
+        // get setting model
+        $freeroll_hand = Setting::getValue('freeroll_hand');
+                var_dump($freeroll_hand);
+        return View::make('schedulejob.give_freerolls',array('response', $freeroll_hand));
+//        if (empty($freeroll_hand)) {
+//            $freeroll_hand = 1;
+//        }
+//        $response = $freeroll_hand;
+//        
+//        $freeroll_hand_list_line = Setting::getValue('freeroll_hand_list_line');
+//        if (empty($freeroll_hand_list_line)) {
+//            $freeroll_hand_list_line = 0;
+//        }
+//        $freeroll_hand_line = Setting::getValue('freeroll_hand_line');
+//        if (empty($freeroll_hand_line)) {
+//            $freeroll_hand_line = 0;
+//        }
+        
+//        $response = array();
+//        $response[count($response)] = Api::system_get("LoginChime");
         /*
         // track to history list
         $history_list = Api::logs_hand_history_list();
@@ -53,7 +60,7 @@ class ScheduleJobController extends BaseController {
 //        $this->setting_model->set_value($freeroll_hand_line,$line_num - 1);
         
         
-        return View::make('schedulejob.give_freerolls', array('response' => $response));
+        
     }
 
 }

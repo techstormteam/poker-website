@@ -1,4 +1,1 @@
-@extends('layout.master')
-
-@section('content')
-@stop
+<?php var_dump($response); ?>
