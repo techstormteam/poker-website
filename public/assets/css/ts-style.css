@@ -1,0 +1,33 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 3, 2014, 6:34:19 PM
+    Author     : Việt Anh <vietanh.sgu@gmail.com>
+*/
+
+.avatar-small {
+    height: 30px;
+    padding-right: 0px;
+}
+.logo-img {
+    height: 50px;
+}
+.navbar-default .navbar-brand {
+    background-size: 30px;
+}
+.login-container .header .logo-img {
+    height: 50px;
+}
+.slider-value {
+    margin-left: 1em;
+}
+.error {
+    color: red;
+}
+.required:after {
+    content: " *";
+    color: red;
+}

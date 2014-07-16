@@ -12,5 +12,6 @@
  */
 
 Route::get('/', 'HomeController@get_index');
+Route::get('/admin', 'AdminController@get_index');
 
 Route::resource('nerds', 'NerdController');
