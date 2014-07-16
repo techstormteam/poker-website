@@ -3,28 +3,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>{{ $title }}</title>
+
         <link href="{{ $assets }}/style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="{{ $assets }}/js/jquery-1.5.2.min.js"></script>
-        <script >
-            $(document).ready(function() {
-                var defaultLan = "English";
-                var r = $('#language h2 span').text();
-                $('#language').hover(function() {
-                    $(this).find("ul").slideDown();
-                    return false;
-                })
-                $('#language ul a').hover(function() {
-                    var r = $(this).text();
-                    $('#language h2 span').text(r);
-                }).click(function() {
-                    defaultLan = $(this).text();
-                });
-                $('#language').mouseleave(function() {
-                    $('#language h2 span').text(defaultLan);
-                    $(this).find("ul").slideUp();
-                    return false;
-                });
-            });
+        <script>
+$(document).ready(function() {
+    var defaultLan = "English";
+    var r = $('#language h2 span').text();
+    $('#language').hover(function() {
+        $(this).find("ul").slideDown();
+        return false;
+    })
+    $('#language ul a').hover(function() {
+        var r = $(this).text();
+        $('#language h2 span').text(r);
+    }).click(function() {
+        defaultLan = $(this).text();
+    });
+    $('#language').mouseleave(function() {
+        $('#language h2 span').text(defaultLan);
+        $(this).find("ul").slideUp();
+        return false;
+    });
+});
         </script>
     </head>
 
@@ -36,7 +37,7 @@
                     <td align="right" valign="middle"><p class="ass_text">ONLINE NOW:  4807 Players   I  91 Tournaments</p>
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td><a href="#"><img src="{{ $assets }}/images/play_online.gif" width="153" height="33" alt="" /></a></td>
+                                <td><a href="http://168.144.171.228:8087/" target="_blank"><img src="{{ $assets }}/images/play_online.gif" width="153" height="33" alt="" /></a></td>
                                 <td>&nbsp;</td>
                                 <td><div id="language">
                                         <h2><span>English</span></h2>
@@ -63,59 +64,28 @@
                     <td><img src="{{ $assets }}/images/menu_left.gif" width="29" height="55" alt="" /></td>
                     <td><div id="menu">
                             <ul>
-                                <li class="nobg"><a href="#" class="active"> Home </a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Strategies</a></li>
-                                <li><a href="#">Tournaments</a></li>
-                                <li><a href="#">Freerolls</a></li>
-                                <li><a href="#">Promos &amp; Bonuses</a> </li>
-                                <li><a href="#">Help</a> </li>
-                                <li><a href="#">Contact</a></li>
+                                <li class="nobg"><a href="{{ URL::to('home/index') }}" class="active"> Home </a></li>
+                                @if(!Auth::check())
+                                <li><a href="{{ URL::to('home/register') }}">Sign in</a></li>
+                                @else
+                                <li><a href="#">Sign out</a></li>
+                                @endif
+                                <!--                                <li><a href="#">About</a></li>
+                                                                <li><a href="#">Strategies</a></li>
+                                                                <li><a href="#">Tournaments</a></li>
+                                                                <li><a href="#">Freerolls</a></li>
+                                                                <li><a href="#">Promos &amp; Bonuses</a> </li>
+                                                                <li><a href="#">Help</a> </li>
+                                                                <li><a href="#">Contact</a></li>-->
                             </ul>
                         </div></td>
                     <td><img src="{{ $assets }}/images/menu_right.gif" width="29" height="55" alt="" /></td>
                 </tr>
             </table>
             <img src="{{ $assets }}/images/shadow.gif" width="1000" height="21" alt="" /> </div>
-        <div id="contain">
-            <div id="box">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td align="left" valign="top"><a href="#"><img src="{{ $assets }}/images/ad_1.jpg" width="317" height="194" alt="" /></a></td>
-                        <td align="center" valign="top"><a href="#"><img src="{{ $assets }}/images/ad_2.jpg" width="358" height="194" alt="" /></a></td>
-                        <td align="right" valign="top"><a href="#"><img src="{{ $assets }}/images/ad_3.jpg" width="318" height="195" alt="" /></a></td>
-                    </tr>
-                </table>
-            </div>
-            <div id="box">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td align="left" valign="top"><div id="black_box">
-                                <div><img src="{{ $assets }}/images/black_up.gif" width="679" height="32" alt="" /></div>
-                                <div id="black_box_in">
-                                    <p class="bold_text"><span>Welcome -</span> Play Poker Online</p>
-                                    <table width="98%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td width="180" align="left" valign="top"><img src="{{ $assets }}/images/wel_pic.gif" width="141" height="130" alt="" /></td>
-                                            <td align="left" valign="top"><p>Vestibulum at urna id nunc imperdiet lacinia tristique sit amet tellus. Sed non elit enim. Suspendisse tempor facilisis dolor, ac imperdiet felis dignissim sed. Donec est enim, tempus a imperdiet ut, porttitor consequat neque.</p>
-                                                <p>Praesent quam sem, euismod quis condimentum et, condimentum dignissim leo. Maecenas dictum blandit turpis, eget adipiscing nisl semper eu. Cras faucibus enim sit amet risus dictum ultricies.</p></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <img src="{{ $assets }}/images/black_bot.gif" width="679" height="32" alt="" /> </div></td>
-                        <td align="left" valign="top"><div id="yellow_box">
-                                <ul>
-                                    <li>Maecenas venenatis arcu in nibh aliquet.</li>
-                                    <li>In nec risus nibh, non aliquam lectus.</li>
-                                    <li>Aliquam hendrerit commodo quam placerat.</li>
-                                    <li>Duis mollis malesuada quam faucibus libero.</li>
-                                </ul>
-                                <br />
-                                <a href="#"><img src="{{ $assets }}/images/play_poker.gif" width="197" height="39" alt="" style="padding-left:30px;" /></a></div></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+
+        @yield('content')
+
         <div id="footer">
             <div id="foot_box">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -155,7 +125,6 @@
             </tr>
         </table>
         <!-- End http://www.pokertemplates.org | http://www.gamingguide.net Code | Do Not Remove -->
-        
-        @yield('content')
+
     </body>
 </html>

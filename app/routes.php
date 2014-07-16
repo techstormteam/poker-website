@@ -11,10 +11,11 @@
   |
  */
 
-
-
 Route::get('/', 'HomeController@get_index');
-Route::get('schedulejob/give_freerolls', 'ScheduleJobController@get_give_freerolls');
+Route::get('home/index', 'HomeController@get_index');
+Route::get('home/register', 'HomeController@register');
+
+//Admin
 Route::get('admin', 'AdminController@get_index');
 Route::get('admin/tournament', 'AdminTournamentController@get_index');
 Route::get('admin/tournament/add_view', 'AdminTournamentController@get_add_view');

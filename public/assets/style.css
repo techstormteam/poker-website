@@ -112,7 +112,7 @@ a {
 	margin:0px auto 0px auto;
 	width:1000px;
 	padding:0px;
-	height:71px;
+	/*height:71px;*/
 }
 #menu {
 	background:url(images/menu_bg.gif) 0 0 repeat-x;
@@ -182,7 +182,7 @@ a {
 	margin:0px auto 0px auto;
 	width:1000px;
 	text-align:center;
-	padding:0px 0px 122px 0px;
+	padding:0;
 }
 #foot_box {
 	width:1000px;
