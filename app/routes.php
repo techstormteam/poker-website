@@ -14,5 +14,6 @@
 Route::get('/', 'HomeController@get_index');
 Route::get('admin', 'AdminController@get_index');
 Route::get('admin/tournament', 'AdminTournamentController@get_index');
+Route::get('admin/tournament/add_view', 'AdminTournamentController@get_add_view');
 
 Route::resource('nerds', 'NerdController');
