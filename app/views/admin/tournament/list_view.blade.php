@@ -1,6 +1,6 @@
-    <?php
-    $this->load->helper('url');
-    ?>
+@extends('layout.administrator')
+
+@section('content')
 <div class="page-head">
     <h2>Tournament List</h2>
     <ol class="breadcrumb">
@@ -75,17 +75,17 @@
                                         <?php
                                         if ($current_page_list_status[$index] === 'Offline') {
                                         ?>
-                                        <a class="btn btn-primary btn-xs" href="<?= site_url("admin/tournament/online/".$current_page_list_name[$index]); ?>" data-original-title="Publish Online" data-toggle="tooltip">
+                                        <a class="btn btn-primary btn-xs" href="{{ URL::to('admin/tournament/online').$current_page_list_name[$index]; }}" data-original-title="Publish Online" data-toggle="tooltip">
                                             <i class="fa fa-thumbs-up"></i></a>
                                         <?php
                                         } else {
                                         ?>
-                                        <a class="btn btn-default btn-xs" href="<?= site_url("admin/tournament/offline/".$current_page_list_name[$index]); ?>" data-original-title="Cancel Online" data-toggle="tooltip">
+                                        <a class="btn btn-default btn-xs" href="{{ URL::to('admin/tournament/offline').$current_page_list_name[$index]; }}" data-original-title="Cancel Online" data-toggle="tooltip">
                                             <i class="fa fa-thumbs-down"></i></a>
                                         <?php
                                         }
                                         ?>
-                                        <a class="btn btn-danger btn-xs" href="<?= site_url("admin/tournament/delete/".$current_page_list_name[$index]); ?>" data-original-title="Remove" data-toggle="tooltip">
+                                        <a class="btn btn-danger btn-xs" href="{{ URL::to('admin/tournament/delete').$current_page_list_name[$index]; }}" data-original-title="Remove" data-toggle="tooltip">
                                             <i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
@@ -140,3 +140,4 @@
         </div>				
     </div>
 </div>
+@stop
