@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@get_index');
 Route::get('home/index', 'HomeController@get_index');
 Route::get('home/register', 'HomeController@register');
+Route::get('home/login', 'HomeController@login');
 
 //Admin
 Route::get('admin', 'AdminController@get_index');
