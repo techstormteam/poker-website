@@ -66,7 +66,7 @@ $(document).ready(function() {
                             <ul>
                                 <li class="nobg"><a href="{{ URL::to('home/index') }}" class="active"> Home </a></li>
                                 @if(!Auth::check())
-                                <li><a href="{{ URL::to('home/register') }}">Sign in</a></li>
+                                <li><a href="{{ URL::to('home/login') }}">Sign in</a></li>
                                 @else
                                 <li><a href="#">Sign out</a></li>
                                 @endif
