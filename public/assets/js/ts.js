@@ -75,3 +75,9 @@ $("#credit_slider").slider().on("slide", function(e) {
 $("#rate_slider").slider().on("slide", function(e) {
     $("#rate").html(e.value + "%");
 });
+
+$(document).ready(function() {
+    //initialize the javascript
+    App.init();
+    App.wizard();
+});

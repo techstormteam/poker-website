@@ -7,12 +7,12 @@
         <meta name="author" content="techstorm">
         <link rel="shortcut icon" href="{{ $assets }}/images/logo.png">
 
-        <title>gd</title>
+        <title>Administrator</title>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'>
 
         <!-- Bootstrap core CSS -->
-        <link href="{{ $assets }}/js/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ $assets }}/js/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="{{ $assets }}/fonts/font-awesome-4/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{ $assets }}/js/jquery.select2/select2.css">
         <link rel="stylesheet" href="{{ $assets }}/js/bootstrap.slider/css/slider.css">
@@ -81,13 +81,7 @@
                         <li><a href="#">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right user-nav">
-                        @if($user_info === FALSE)
                             <li class="dropdown profile_menu">
-                                <?= anchor('home/login', '<img alt="Avatar" class="avatar-small" src="' . $assets . '/images/login.png" />Login', array('class' => 'dropdown-toggle')); ?>
-                            </li>
-                        @else
-                            <li class="dropdown profile_menu">
-
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img alt="Avatar" src="{{ $assets }}/images/avatar2.jpg" />Hello, Admin <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">My Account</a></li>
@@ -97,7 +91,6 @@
                                     <li><a href="#">Sign Out</a></li>
                                 </ul>
                             </li>
-                        @endif
                     </ul>
                     <ul class="nav navbar-nav navbar-right not-nav">
                         <li class="button dropdown">
@@ -138,12 +131,13 @@
                             </div>
                             <ul class="cl-vnavigation">
                                 <li>
-                                    <?= anchor('admin/admin/index', '<i class="fa fa-home"></i><span>Dashboard</span>'); ?>
+                                    {{ HTML::decode(HTML::linkAction('AdminController@get_index', '<i class="fa fa-home"></i><span>Dashboard</span>')) }}
                                 </li>
                                 <li><a href="#"><i class="fa fa-flag-checkered"></i><span>Tournament</span></a>
                                     <ul class="sub-menu">
-                                        <li><?= anchor('admin/tournament/add_view', 'Add Tournament'); ?></li>
-                                        <li><?= anchor('admin/tournament/list_view', 'View Tournament List'); ?></li>
+                                        
+                                        <li>{{ HTML::linkAction('AdminTournamentController@get_index', 'Add Tournament') }}</li>
+                                        <li>{{ HTML::linkAction('AdminTournamentController@get_index', 'View Tournament List') }}</li>
                                     </ul>
                                 </li>
                             </ul>
