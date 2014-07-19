@@ -1,32 +1,45 @@
-@extends('layout.master')
+@extends('layout.bootstrap')
 
 @section('content')
-<section class="box box-register">
-    <h1>Register</h1>
-    <form action="" method='POST'>
-        <div class="form-inline">
-            <label>Username:</label>
-            <input name='username' type='text' placeholder="Enter username">
+<section class="box-register center-block">
+    {{ Form::open(array('url' => 'home/post_register', 'class' => 'ts-box form-horizontal')) }}
+    <fieldset>
+        <legend>
+            <h1 class='center'>Register</h1>
+        </legend>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Username:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='username' type='text' placeholder="Enter username">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Password:</label>
-            <input name='password1' type='password' placeholder="Enter password">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Password:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='password1' type='password' placeholder="Enter password">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Retype Password:</label>
-            <input name='password2' type='password' placeholder="Retype password">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Retype Password:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='password2' type='password' placeholder="Retype password">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Nickname:</label>
-            <input name='nickname' type='text' placeholder="Enter nick name">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Nickname:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='nickname' type='text' placeholder="Enter nick name">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Email:</label>
-            <input name='email' type='text' placeholder="Enter email">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Email:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='email' type='text' placeholder="Enter email">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Avatar:</label>
-            <div style="width: 140px; height: 175px; overflow: auto; border: solid 1px #DDDDDD">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Avatar:</label>
+            <div style="margin-left: 115px; padding-left: 10px; width: 140px; height: 200px; overflow: auto; border: solid 1px #999; border-radius: 5px;">
                 <?php
                 $avatarurl = "http://168.144.171.228:8087/Image?Name=Avatars";   // set your url here
                 $avatarmax = 64;
@@ -53,68 +66,94 @@
             </div>
         </div>
         <hr/>
-        <div class="form-inline">
-            <label>Phone Code:</label>
-            <input name='phone_code' type='text' placeholder="Enter phone code">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Phone Code:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='phone_code' type='text' placeholder="Enter phone code">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Phone:</label>
-            <input name='phone' type='text' placeholder="Enter phone number">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Phone:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='phone' type='text' placeholder="Enter phone number">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>First Name:</label>
-            <input name='first_name' type='text' placeholder="Enter first name">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">First Name:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='first_name' type='text' placeholder="Enter first name">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Last Name:</label>
-            <input name='last_name' type='text' placeholder="Enter last name">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Last Name:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='last_name' type='text' placeholder="Enter last name">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Gender:</label>
-            <label style='font-weight: normal; width: 120px;'> <input type="radio" name="gender" class="icheck" value="Male" checked=""> Male</label>
-            <label style='font-weight: normal; width: 120px;'> <input type="radio" name="gender" class="icheck" value="Female"> Female</label>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Gender:</label>
+            <div class='col-xs-10'>
+                <label style='font-weight: normal; width: 120px;'> <input type="radio" name="gender" class="icheck" value="Male" checked=""> Male</label>
+                <label style='font-weight: normal; width: 120px;'> <input type="radio" name="gender" class="icheck" value="Female"> Female</label>
+            </div>
         </div>
         <hr/>
-        <div class="form-inline">
-            <label>IP:</label>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">IP:</label>
             <?php
-            $info = file_get_contents('http://ipinfo.io/json');
-            $info = json_decode($info);
+            $info = json_decode(file_get_contents('http://ipinfo.io/json'));
             ?>
-            <input name='ip' type='text' value='{{ $info->ip }}' disabled="">
+            <div class='col-xs-10'>
+                <input class='form-control' name='ip' type='text' value='{{ $info->ip }}' disabled="">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Country:</label>
-            <input name='country' type='text' value='{{ $info->country }}' disabled="" style='width: 50%; margin-right: 15px;'>
-            <img src="http://shorter.in/flag.php">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Country:</label>
+            <div class='col-xs-10 form-inline'>
+                <input class='form-control' name='country' type='text' value='{{ $info->country }}' disabled="" style='width: 50%; margin-right: 15px;'>
+                <img src="http://shorter.in/flag.php">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>City:</label>
-            <input name='city' type='text' value='{{ $info->city }}' disabled="">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">City:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='city' type='text' value='{{ $info->city }}' disabled="">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>State:</label>
-            <input name='state' type='text' placeholder="Enter state">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">State:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='state' type='text' placeholder="Enter state">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Street Address:</label>
-            <input name='street_address' type='text' placeholder="Enter street address">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Street Address:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='street_address' type='text' placeholder="Enter street address">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Zip Code:</label>
-            <input name='zip_code' type='text' placeholder="Enter zip code">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Zip Code:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='zip_code' type='text' placeholder="Enter zip code">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>Bonus Code:</label>
-            <input name='bonus_code' type='text' placeholder="Enter bonus code">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">Bonus Code:</label>
+            <div class='col-xs-10'>
+                <input class='form-control' name='bonus_code' type='text' placeholder="Enter bonus code">
+            </div>
         </div>
-        <div class="form-inline">
-            <label>How do you know about us?</label>
-            <textarea name='answer' cols="38" rows="5" placeholder='Enter your answer'></textarea>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">How do you know about us?</label>
+            <div class='col-xs-10'>
+                <textarea class='form-control' name='answer' cols="38" rows="5" placeholder='Enter your answer'></textarea>
+            </div>
         </div>
-        <div class="btn-group">
-            <input name='submit' type='submit' class='btn-primary' value='Sign in' style="width: 100%;">
+        <div class="center-block">
+            <input class='btn btn-primary' name='submit' type='submit' class='btn-primary' value='Sign in' style="width: 100%;">
         </div>
-    </form>
+    </fieldset>
+    {{ Form::close() }}
 </section>
 @stop
