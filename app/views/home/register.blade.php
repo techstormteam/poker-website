@@ -1,44 +1,53 @@
 @extends('layout.bootstrap')
 
+@section('script')
+@if(Session::has('register_message'))
+<script>
+    $.UIkit.notify('{{ Session::get("register_message") }}');
+</script>
+@endif
+@stop
+
 @section('content')
 <section class="box-register center-block">
-    {{ Form::open(array('url' => 'home/post_register', 'class' => 'ts-box form-horizontal')) }}
+    {{ Form::open(array('url' => 'home/register', 'class' => 'ts-box form-horizontal')) }}
     <fieldset>
         <legend>
             <h1 class='center'>Register</h1>
         </legend>
+        {{ HTML::ul($errors->all()) }}
         <div class="form-group">
-            <label class="col-xs-2 control-label">Username:</label>
+            {{ Form::label('username', 'Username', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='username' type='text' placeholder="Enter username">
+                {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder' => 'Enter username')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Password:</label>
+            {{ Form::label('password', 'Password', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='password1' type='password' placeholder="Enter password">
+                {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Enter password')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Retype Password:</label>
+            {{ Form::label('password_confirmation', 'Retype password', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='password2' type='password' placeholder="Retype password">
+                {{ Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Retype password')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Nickname:</label>
+            {{ Form::label('nickname', 'Nickname', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='nickname' type='text' placeholder="Enter nick name">
+                {{ Form::text('nickname', Input::old('nickname'), array('class' => 'form-control', 'placeholder' => 'Enter nickname')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Email:</label>
+            {{ Form::label('email', 'Email', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='email' type='text' placeholder="Enter email">
+                {{ Form::text('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'Enter email')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Avatar:</label>
+            {{ Form::label('avatar', 'Avatar', array('class' => 'col-xs-2 control-label')) }}
             <div style="margin-left: 115px; padding-left: 10px; width: 140px; height: 200px; overflow: auto; border: solid 1px #999; border-radius: 5px;">
                 <?php
                 $avatarurl = "http://168.144.171.228:8087/Image?Name=Avatars";   // set your url here
@@ -47,13 +56,13 @@
                 if (!empty(filter_input(INPUT_POST, 'avatar'))) {
                     $ava_img = filter_input(INPUT_POST, 'avatar');
                 } else {
-                    $ava_img = 0;
+                    $ava_img = 1;
                 }
 
-                for ($i = 0; $i < $avatarmax; $i++)
+                for ($i = 1; $i <= $avatarmax; $i++)
                 {
                     $a = "display: inline-block; width: 48px; height: 48px; background: " .
-                            "url('" . $avatarurl . "') no-repeat -" . ($i * 48) . "px 0px;";
+                            "url('" . $avatarurl . "') no-repeat -" . (($i-1) * 48) . "px 0px;";
                     $s = "<input type='radio' name='avatar' value='" . ($i) . "'";
                     if ($i == $ava_img) {
                         $s .= " checked";
@@ -67,91 +76,85 @@
         </div>
         <hr/>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Phone Code:</label>
+            {{ Form::label('phone_code', 'Phone Code', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='phone_code' type='text' placeholder="Enter phone code">
+                {{ Form::text('phone_code', Input::old('phone_code'), array('class' => 'form-control', 'placeholder' => 'Enter phone code')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Phone:</label>
+            {{ Form::label('phone', 'Phone', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='phone' type='text' placeholder="Enter phone number">
+                {{ Form::text('phone', Input::old('phone'), array('class' => 'form-control', 'placeholder' => 'Enter phone number')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">First Name:</label>
+            {{ Form::label('real_name', 'Real Name', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='first_name' type='text' placeholder="Enter first name">
+                {{ Form::text('real_name', Input::old('real_name'), array('class' => 'form-control', 'placeholder' => 'Enter real name')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Last Name:</label>
+            <label class="col-xs-2 control-label">Gender</label>
             <div class='col-xs-10'>
-                <input class='form-control' name='last_name' type='text' placeholder="Enter last name">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-xs-2 control-label">Gender:</label>
-            <div class='col-xs-10'>
-                <label style='font-weight: normal; width: 120px;'> <input type="radio" name="gender" class="icheck" value="Male" checked=""> Male</label>
-                <label style='font-weight: normal; width: 120px;'> <input type="radio" name="gender" class="icheck" value="Female"> Female</label>
+                <label style='font-weight: normal; width: 120px;'> {{ Form::radio('gender', 'male', Input::old('gender', true)) }} Male</label>
+                <label style='font-weight: normal; width: 120px;'> {{ Form::radio('gender', 'female', Input::old('gender')) }} Female</label>
             </div>
         </div>
         <hr/>
         <div class="form-group">
-            <label class="col-xs-2 control-label">IP:</label>
+            {{ Form::label('ip', 'IP', array('class' => 'col-xs-2 control-label')) }}
             <?php
             $info = json_decode(file_get_contents('http://ipinfo.io/json'));
             ?>
             <div class='col-xs-10'>
-                <input class='form-control' name='ip' type='text' value='{{ $info->ip }}' disabled="">
+                {{ Form::text('ip', $info->ip, array('class' => 'form-control', 'readonly' => 'readonly')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Country:</label>
+            {{ Form::label('country', 'Country', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10 form-inline'>
-                <input class='form-control' name='country' type='text' value='{{ $info->country }}' disabled="" style='width: 50%; margin-right: 15px;'>
+                {{ Form::text('country', $info->country, array('class' => 'form-control', 'readonly' => 'readonly', 'style' => 'width: 85%; margin-right: 15px;')) }}
                 <img src="http://shorter.in/flag.php">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">City:</label>
+            {{ Form::label('city', 'City', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='city' type='text' value='{{ $info->city }}' disabled="">
+                {{ Form::text('city', $info->city, array('class' => 'form-control', 'readonly' => 'readonly')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">State:</label>
+            {{ Form::label('state', 'State', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='state' type='text' placeholder="Enter state">
+                {{ Form::text('state', Input::old('state'), array('class' => 'form-control', 'placeholder' => 'Enter state')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Street Address:</label>
+            {{ Form::label('street_address', 'Street Address', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='street_address' type='text' placeholder="Enter street address">
+                {{ Form::text('street_address', Input::old('street_address'), array('class' => 'form-control', 'placeholder' => 'Enter street address')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Zip Code:</label>
+            {{ Form::label('zip_code', 'Zip Code', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='zip_code' type='text' placeholder="Enter zip code">
+                {{ Form::text('zip_code', Input::old('zip_code'), array('class' => 'form-control', 'placeholder' => 'Enter zip code')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">Bonus Code:</label>
+            {{ Form::label('bonus_code', 'Bonus Code', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <input class='form-control' name='bonus_code' type='text' placeholder="Enter bonus code">
+                {{ Form::text('bonus_code', Input::old('bonus_code'), array('class' => 'form-control', 'placeholder' => 'Enter bonus code')) }}
             </div>
         </div>
         <div class="form-group">
-            <label class="col-xs-2 control-label">How do you know about us?</label>
+            {{ Form::label('answer', 'How do you know about us?', array('class' => 'col-xs-2 control-label')) }}
             <div class='col-xs-10'>
-                <textarea class='form-control' name='answer' cols="38" rows="5" placeholder='Enter your answer'></textarea>
+                {{ Form::textarea('answer', Input::old('answer'), ['class' => 'form-control', 'placeholder' => 'Enter your answer', 'size' => '50x5']) }}
             </div>
         </div>
         <div class="center-block">
-            <input class='btn btn-primary' name='submit' type='submit' class='btn-primary' value='Sign in' style="width: 100%;">
+            {{ Form::submit('Register', ['class' => 'btn btn-primary form-control']) }}
         </div>
     </fieldset>
     {{ Form::close() }}

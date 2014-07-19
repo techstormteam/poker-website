@@ -1,4 +1,26 @@
-@extends('layout.master02')
+@extends('layout.bootstrap')
+
+@section('script')
+
+@if(Session::has('register_message'))
+<script>
+    $.UIkit.notify('{{ Session::get("register_message") }}', {status:'success'});
+</script>
+@endif
+
+@if(Session::has('login_message'))
+<script>
+    $.UIkit.notify('{{ Session::get("login_message") }}', {status:'success'});
+</script>
+@endif
+
+@if(Session::has('logout_message'))
+<script>
+    $.UIkit.notify('{{ Session::get("logout_message") }}', {status:'success'});
+</script>
+@endif
+
+@stop
 
 @section('content')
 <div id="contain">

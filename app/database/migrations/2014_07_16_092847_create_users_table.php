@@ -20,30 +20,28 @@ class CreateUsersTable extends Migration {
 
             $table->string('username', 20);
             $table->text('password');
-            $table->string('nickname', 20);
+            $table->string('nickname', 20)->nullable();
             $table->string('email', 80);
             $table->string('avatar', 10);
             $table->string('phone_code', 10);
             $table->string('phone', 20);
-            $table->text('first_name');
-            $table->text('last_name');
+            $table->string('real_name', 26)->nullable();
             $table->string('gender', 10);
-            $table->string('ip', 50);
-            $table->string('country', 100);
+            $table->string('ip', 50)->nullable();
+            $table->string('country', 100)->nullable();
             $table->text('city');
             $table->text('state')->nullable();
             $table->text('street_address');
             $table->string('zip_code', 20)->nullable();
             $table->text('answer')->nullable();
             $table->text('bonus_code')->nullable();
-            $table->bigInteger('freeroll_hand_number')->default(0);
-            $table->bigInteger('freeroll_available')->default(0);
-            $table->integer('status')->default(0);
+            $table->bigInteger('freeroll_hand_number')->default(0)->nullable();
+            $table->bigInteger('freeroll_available')->default(0)->nullable();
+            $table->integer('status')->default(0)->nullable();
             $table->text('activate_code')->nullable();
 
             $table->unique('username');
             $table->unique('email');
-            $table->unique('nickname');
 
             $table->rememberToken();
             $table->timestamps();
@@ -59,8 +57,7 @@ class CreateUsersTable extends Migration {
                     'avatar' => '1',
                     'phone_code' => '84',
                     'phone' => '1652175179',
-                    'first_name' => 'Tran',
-                    'last_name' => 'Viet Anh',
+                    'real_name' => 'Tran Viet Anh',
                     'gender' => 'male',
                 )
         );
@@ -73,8 +70,7 @@ class CreateUsersTable extends Migration {
                     'avatar' => '1',
                     'phone_code' => '84',
                     'phone' => '1652175179',
-                    'first_name' => 'Tran',
-                    'last_name' => 'Viet Anh',
+                    'real_name' => 'Tran Viet Anh',
                     'gender' => 'male',
                 )
         );

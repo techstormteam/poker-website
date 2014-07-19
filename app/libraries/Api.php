@@ -83,9 +83,9 @@ class Api {
         $params['Command'] = 'AccountsAdd';
         $params['Player'] = $account['username'];
         $params['Title'] = $account['nickname'];
-        $params['RealName'] = $account['first_name'] . ' ' . $account['last_name'];
+        $params['RealName'] = $account['real_name'];
         $params['PW'] = $account['password'];
-        $params['Location'] = $account['city'] . ', ' . $account['state'];
+        $params['Location'] = $account['city'];
         $params['Email'] = $account['email'];
         $params['Avatar'] = $account['avatar'];
         $params['Gender'] = $account['gender'];

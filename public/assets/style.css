@@ -104,9 +104,9 @@ a {
 #banner {
     background:url(images/banner.jpg) 0 0 no-repeat;
     margin:0px auto 0px auto;
-    width:944px;
+    width: 1000px;
     padding:55px 0px 0px 56px;
-    height:311px;
+    height:370px;
 }
 #menu_outer {
     margin:0px auto 0px auto;
@@ -154,7 +154,7 @@ a {
     padding:20px 0px 0px 0px;
 }
 #black_box_in {
-    width:630px;
+    width:679px;
     background:#181818;
     padding:10px 20px 30px 29px;
 }
@@ -164,8 +164,8 @@ a {
 #yellow_box {
     margin-top:20px;
     background:url(images/free_poker_bg.gif) 0 0 no-repeat;
-    width:291px;
-    height:179px;
+    width:316px;
+    height:294px;
     padding:115px 0px 0px 25px;
 }
 #yellow_box ul {

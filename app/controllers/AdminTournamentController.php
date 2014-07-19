@@ -12,8 +12,6 @@ class AdminTournamentController extends BaseController {
     }
 
     public function get_add_view() {
-     
-
         $keep_data = Value_default::tournamentDefault();
         
         return View::make('admin.tournament.add_view', array('keep_data'=>$keep_data));

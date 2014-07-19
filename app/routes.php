@@ -13,19 +13,10 @@
 Route::get('/', 'HomeController@get_index');
 Route::controller('home', 'HomeController');
 Route::controller('test', 'TestController');
-//Route::controller('admin', 'AdminController');
-//Route::controller('admin/tournament', 'AdminTournamentController');
+Route::controller('admin', 'AdminController');
+Route::controller('admin/tournament', 'AdminTournamentController');
 //System
-//Route::get('schedulejob/give_freerolls', 'ScheduleJobController@get_give_freerolls');
-
-
-//Route::get('home', 'HomeController@index');
-//Route::get('home/register', 'HomeController@form_register');
-//Route::post('home', 'HomeController@do_register');
-//Route::get('home/login', 'HomeController@form_login');
-//Route::post('home/login', 'HomeController@do_login');
-
-//Route::resource('home', 'HomeController');
+Route::get('schedulejob/give_freerolls', 'ScheduleJobController@get_give_freerolls');
 
 //Admin
 //Route::get('admin', 'AdminController@get_index');
@@ -38,4 +29,4 @@ Route::controller('test', 'TestController');
 //Route::get('admin/tournament/online/{name}', array('as' => 'group', 'uses' => 'AdminTournamentController@get_online'));
 //Route::get('admin/tournament/offline/{name}', array('as' => 'group', 'uses' => 'AdminTournamentController@get_offline'));
 
-Route::resource('nerds', 'NerdController');
+//Route::resource('nerds', 'NerdController');

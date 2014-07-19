@@ -9,9 +9,12 @@
         <link href="{{ $assets }}/bootstrap/css/bootstrap.theme.css" rel="stylesheet" type="text/css" />
 
         <!--Addons-->
+        <link href="{{ $assets }}/uikit/css/uikit.css" rel="stylesheet" type="text/css" />
         <link href="{{ $assets }}/bootstrap/css/addons/uikit.addons.css" rel="stylesheet" type="text/css" />
         <link href="{{ $assets }}/bootstrap/css/addons/uikit.gradient.addons.css" rel="stylesheet" type="text/css" />
         
+        <script src="{{ $assets }}/bootstrap/js/jquery-1.11.1.min.js" type="text/javascript" ></script>
+        <script src="{{ $assets }}/uikit/js/uikit.min.js"></script>
         <script src="{{ $assets }}/bootstrap/js/addons/autocomplete.min.js"></script>
         <script src="{{ $assets }}/bootstrap/js/addons/datepicker.min.js"></script>
         <script src="{{ $assets }}/bootstrap/js/addons/form-password.min.js"></script>
@@ -120,7 +123,6 @@
         </table>
         <!-- End http://www.pokertemplates.org | http://www.gamingguide.net Code | Do Not Remove -->
 
-        <script src="{{ $assets }}/bootstrap/js/jquery-1.11.1.min.js" type="text/javascript" ></script>
         <script src="{{ $assets }}/bootstrap/js/boostrap.min.js" type="text/javascript" ></script>
         @yield('script')
     </body>
